@@ -1,0 +1,12 @@
+services:
+  integration-demo:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      LOG_LEVEL: info
+      REQUEST_TIMEOUT_MS: 1500
+      RETRY_MAX_ATTEMPTS: 3
+      RETRY_BASE_DELAY_MS: 100
+      MOCK_FINANCIAL_FAILURE_RATE: 0
