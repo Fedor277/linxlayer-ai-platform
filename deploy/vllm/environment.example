@@ -1,0 +1,10 @@
+MODEL_ID=approved-org/approved-open-weight-model
+SERVED_MODEL_NAME=portfolio-text-model
+VLLM_API_KEY={{ RUNPOD_SECRET_vllm_api_key }}
+HUGGING_FACE_HUB_TOKEN={{ RUNPOD_SECRET_hugging_face_token }}
+HF_HOME=/workspace/huggingface-cache
+VLLM_CACHE_ROOT=/workspace/vllm-cache
+MAX_MODEL_LEN=8192
+GPU_MEMORY_UTILIZATION=0.90
+TENSOR_PARALLEL_SIZE=1
+PORT=8000
