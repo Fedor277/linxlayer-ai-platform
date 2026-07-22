@@ -1,0 +1,20 @@
+sequenceDiagram
+    autonumber
+    participant Client
+    participant Gateway
+    participant Policy as Validation / policy
+    participant vLLM
+    participant Images as Image worker
+
+    Client->>Gateway: HTTPS request + bearer token
+    Gateway->>Policy: Authenticate, rate limit, validate, assign request ID
+    alt text generation
+      Policy->>vLLM: POST /v1/chat/completions
+      vLLM-->>Policy: OpenAI-compatible response
+    else image generation
+      Policy->>Images: POST /generate
+      Images-->>Policy: URL or base64 image result
+      Policy-->>Policy: Normalize to gateway response
+    end
+    Policy-->>Gateway: Sanitized result
+    Gateway-->>Client: Response + x-request-id

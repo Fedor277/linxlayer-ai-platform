@@ -1,0 +1,28 @@
+flowchart LR
+    C[Web, mobile, and internal clients] -->|HTTPS + client token| E[Edge TLS / WAF]
+    E --> G[Secure application gateway]
+
+    subgraph PUBLIC[Public trust boundary]
+      E
+      G
+    end
+
+    G -->|OpenAI-compatible chat request| V[vLLM text inference]
+    G -->|Validated image job| I[Image generation worker]
+
+    subgraph PRIVATE[Private GPU inference network]
+      V
+      I
+      M[(Model and cache volume)]
+      V <--> M
+      I <--> M
+    end
+
+    G --> O[(Object storage / generated assets)]
+    G --> L[Metrics, logs, and traces]
+    V --> L
+    I --> L
+
+    S[RunPod secrets] -.runtime injection.-> G
+    S -.runtime injection.-> V
+    S -.runtime injection.-> I

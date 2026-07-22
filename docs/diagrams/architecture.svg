@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">LinxLayer self-hosted AI platform architecture</title>
+  <desc id="desc">Clients connect through an edge layer to a secure gateway, which routes text to vLLM and images to a separate GPU worker on a private RunPod network.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <text x="800" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a">LinxLayer AI Platform</text>
+  <text x="800" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#475569">Sanitized self-hosted generative AI architecture on RunPod</text>
+
+  <rect x="80" y="185" width="300" height="145" rx="24" fill="#ffffff" stroke="#94a3b8" stroke-width="2" filter="url(#shadow)"/>
+  <text x="230" y="235" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Applications</text>
+  <text x="230" y="275" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Web • Mobile • Internal tools</text>
+  <text x="230" y="307" text-anchor="middle" font-family="Arial" font-size="16" fill="#64748b">HTTPS + client authentication</text>
+
+  <rect x="500" y="155" width="430" height="205" rx="28" fill="#e0f2fe" stroke="#0284c7" stroke-width="3" filter="url(#shadow)"/>
+  <text x="715" y="210" text-anchor="middle" font-family="Arial" font-size="25" font-weight="700" fill="#0c4a6e">Secure Application Gateway</text>
+  <text x="715" y="250" text-anchor="middle" font-family="Arial" font-size="17" fill="#075985">Authentication • allowlists • validation</text>
+  <text x="715" y="282" text-anchor="middle" font-family="Arial" font-size="17" fill="#075985">Rate limits • timeouts • request IDs</text>
+  <text x="715" y="314" text-anchor="middle" font-family="Arial" font-size="17" fill="#075985">Redacted structured logging</text>
+
+  <rect x="1040" y="130" width="470" height="575" rx="32" fill="#f1f5f9" stroke="#475569" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="1275" y="180" text-anchor="middle" font-family="Arial" font-size="21" font-weight="700" fill="#334155">Private RunPod GPU Network</text>
+
+  <rect x="1100" y="225" width="350" height="150" rx="22" fill="#ede9fe" stroke="#7c3aed" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1275" y="275" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#4c1d95">vLLM Text Service</text>
+  <text x="1275" y="312" text-anchor="middle" font-family="Arial" font-size="17" fill="#5b21b6">Open-weight model inference</text>
+  <text x="1275" y="342" text-anchor="middle" font-family="Arial" font-size="16" fill="#6d28d9">OpenAI-compatible API</text>
+
+  <rect x="1100" y="430" width="350" height="150" rx="22" fill="#dcfce7" stroke="#16a34a" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1275" y="480" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#14532d">Image Worker</text>
+  <text x="1275" y="517" text-anchor="middle" font-family="Arial" font-size="17" fill="#166534">Diffusion pipeline / workflow API</text>
+  <text x="1275" y="547" text-anchor="middle" font-family="Arial" font-size="16" fill="#15803d">Separate from vLLM</text>
+
+  <rect x="1110" y="625" width="330" height="58" rx="16" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="1275" y="662" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#334155">Persistent model/cache volume</text>
+
+  <rect x="500" y="510" width="430" height="160" rx="24" fill="#fff7ed" stroke="#ea580c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="715" y="560" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#9a3412">Operations & Storage</text>
+  <text x="715" y="600" text-anchor="middle" font-family="Arial" font-size="17" fill="#9a3412">Metrics • logs • traces • alerts</text>
+  <text x="715" y="632" text-anchor="middle" font-family="Arial" font-size="17" fill="#9a3412">Generated assets in object storage</text>
+
+  <rect x="80" y="510" width="300" height="160" rx="24" fill="#fef2f2" stroke="#dc2626" stroke-width="2" filter="url(#shadow)"/>
+  <text x="230" y="560" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#991b1b">Secret Management</text>
+  <text x="230" y="600" text-anchor="middle" font-family="Arial" font-size="17" fill="#991b1b">Runtime-injected credentials</text>
+  <text x="230" y="632" text-anchor="middle" font-family="Arial" font-size="17" fill="#991b1b">No secrets in images or Git</text>
+
+  <line x1="380" y1="257" x2="495" y2="257" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="930" y1="235" x2="1090" y2="290" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="930" y1="300" x2="1090" y2="490" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="715" y1="360" x2="715" y2="500" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="380" y1="590" x2="490" y2="590" stroke="#dc2626" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+  <line x1="1275" y1="375" x2="1275" y2="615" stroke="#64748b" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)"/>
+  <line x1="1275" y1="580" x2="1275" y2="615" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="800" y="820" text-anchor="middle" font-family="Arial" font-size="16" fill="#64748b">Only the gateway is intended to be publicly reachable; inference services remain private and authenticated.</text>
+</svg>
